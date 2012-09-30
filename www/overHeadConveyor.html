@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>millwright</title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    </head>
+    <body>
+
+        <!-- OverHeadConveyor -->
+        <div data-role="page" data-theme="a" id="OverHeadConveyor" >
+            <div data-theme="a" data-role="header" >
+                <a href="index.html" data-icon="home" rel="external">Home</a>
+                <h3>
+				Rigging
+                </h3>
+            </div>
+				<div class="ad_container">
+						<div class="ad_container_script">
+							<script type="text/javascript"><!--
+							google_ad_client = "ca-pub-8682512281936420";
+							/* millwright */
+							google_ad_slot = "7124628988";
+							google_ad_width = 320;
+							google_ad_height = 50;
+							google_ad_type = "image";
+							//-->
+							</script>
+							<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+							</script>
+						</div>
+				</div>		
+            <div data-role="content" style="padding: 15px">
+                <ul data-role="listview" data-divider-theme="e" data-inset="true">
+                    <li data-theme="a">
+                        <a href="#page11" data-transition="slide">
+                            Cross Brace
+                        </a>
+                    </li>
+                    <li data-theme="a">
+                        <a href="#page12" data-transition="slide">
+                            Dip Plug
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+		
+        <!-- Cross Brace -->
+        <div data-role="page" data-theme="a" id="page11" >
+            <div data-theme="a" data-role="header">
+                <a href="index.html" data-icon="home" rel="external">Home</a>
+                <h3>
+                    Cross Brace
+                </h3>
+			<a href="overHeadConveyor.html" data-icon="back" data-theme="b">Back</a>					
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <form id="crossbrace">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="leg">
+                                Leg
+                            </label>
+                            <input id="leg" placeholder=""  name="leg" value="" type="number" step="0.001" min="0"/>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="width">
+                                Distance To Pad
+                            </label>
+                            <input id="width" placeholder=""  name="width" value="" type="number" step="0.001" min="0"/>
+                        </fieldset>
+                    </div>
+								
+                    <div class="ui-grid-a">
+						<div class="ui-block-a"><button id="reset" type="reset" data-theme="c" name="reset">Reset</button></div>
+						<div class="ui-block-b"><button id="submit" type="submit" data-theme="b" name="submit" >Submit</button></div>
+					</div>
+
+					<div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="brace">
+                                Cross Brace
+                            </label>
+                            <input id="brace" placeholder=""  name="brace" type="number" disabled="disabled"/>
+                        </fieldset>
+                    </div>
+				
+	        <script type="text/javascript"><!--
+				// define a function to perform our calculation.
+				function calculate () {
+					// retrieve the values from the amount and percentage fields
+					// and store them in variables.
+					var leg = $('#leg').val();
+					var width = $('#width').val();
+					
+					// also calculate the total.
+					
+					// Note the 'Number' function: amount is actually a string
+					// and adding a number to a string just makes a longer
+					// string, so we convert it to a number first.
+					var brace = Math.sqrt((leg * leg) + (width * width)) ;
+					
+					// Store the values in the result fields
+					
+					// Note that we call the 'toFixed' function,
+					// which is a property of all numbers. This
+					// makes sure there are only two digits after
+					// the decimal point.
+					$('#brace').val( brace.toFixed(3) );
+					
+					// submit event fucntions must return false,
+					// to tell the browser not to load a new page.
+					return false;
+				}
+
+				// attach our function to the form's submit event.
+				$('#crossbrace').submit( calculate );
+				$('#reset').click(function() {
+					$('#leg').val('0').number('refresh');
+					$('#width').val('0').number('refresh');
+					$('#brace').val('0').number('refresh');
+				});
+
+			</script>
+				</form>	
+            </div>
+        </div>
+		
+        <!-- Dip Plug -->
+        <div data-role="page" data-theme="a" id="page12" >
+            <div data-theme="a" data-role="header">
+                <a href="index.html" data-icon="home" rel="external">Home</a>
+                <h3>
+                    Dip Plug
+                </h3>
+			<a href="overHeadConveyor.html" data-icon="back" data-theme="b">Back</a>					
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <form id="dipplug">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="radius">
+                                Radius
+                            </label>
+                            <input id="radius" placeholder=""  name="radius" value="" type="number" step="0.001" min="0"/>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="arc">
+                                Degree Angle
+                            </label>
+                            <input id="arc" placeholder=""  name="arc" value="" type="number" step="0.001" min="0"/>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="ttot">
+                                Tangent To Tangent
+                            </label>
+                            <input id="ttot" placeholder=""  name="ttot" value="" type="number" step="0.001" min="0"/>
+                        </fieldset>
+                    </div>					
+					
+								
+                    <div class="ui-grid-a">
+						<div class="ui-block-a"><button id="reset" type="reset" data-theme="c" name="reset">Reset</button></div>
+						<div class="ui-block-b"><button id="submit" type="submit" data-theme="b" name="submit" >Submit</button></div>
+					</div>
+
+					<div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="plug">
+                                Plug
+                            </label>
+                            <input id="plug" placeholder=""  name="plug" type="number" disabled="disabled"/>
+                        </fieldset>
+                    </div>
+					
+	        <script type="text/javascript"><!--
+				// define a function to perform our calculation.
+				function calculate () {
+					// retrieve the values from the amount and percentage fields
+					// and store them in variables.
+					var radius = $('#radius').val();
+					var arc = $('#arc').val();
+					var ttot = $('#ttot').val();
+
+					
+					// also calculate the total.
+					
+					// Note the 'Number' function: amount is actually a string
+					// and adding a number to a string just makes a longer
+					// string, so we convert it to a number first.
+					var degrees = arc * (Math.PI / 180);
+					var sin = Math.sin(degrees);
+					var cos = Math.cos(degrees);
+					var rad2 = 2*(radius*sin);
+					var  plug = (ttot-rad2)/ cos;
+					
+					// Store the values in the result fields
+					
+					// Note that we call the 'toFixed' function,
+					// which is a property of all numbers. This
+					// makes sure there are only two digits after
+					// the decimal point.
+					$('#plug').val( plug.toFixed(3) );
+
+					
+					// submit event fucntions must return false,
+					// to tell the browser not to load a new page.
+					return false;
+				}
+
+				// attach our function to the form's submit event.
+				$('#dipplug').submit( calculate );
+				$('#reset').click(function() {
+					$('#leg').val('0').number('refresh');
+					$('#width').val('0').number('refresh');
+					$('#brace').val('0').number('refresh');
+				});
+
+			</script>
+				</form>	
+            </div>
+        </div>
+		
+
+		
+
+
+		<script src="phonegap.js"></script>
+
+		
+
+		
+    </body>
+</html>
